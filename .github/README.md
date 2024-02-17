@@ -3,7 +3,7 @@
 <img alt="Supercity Baner" src="../.github/Supercity.png" >
   
 <h2 align="center"> About this game </h2>
-Welcome to the enhanced edition of My City by Davinci – become the mayor of your own thriving metropolis. With an array of new features, including additional activities, improved UI, achievements, and more.
+Welcome to the enhanced edition of "My City 2.0" by Davinci – become the mayor of your own thriving metropolis. With an array of new features, including additional activities, improved UI, achievements, and more.
 
 
 
