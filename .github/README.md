@@ -1,6 +1,6 @@
 <h1 align="center">Supercity</h1>
 
-<img alt="Supercity Baner" src="../Supercity.png">
+<img alt="Supercity Baner" src="../.github/Supercity.png">
   
 ## About this game
 Welcome to the enhanced edition of My City by Davinci – become the mayor of your own thriving metropolis. With an array of new features, including additional activities, improved UI, achievements, and more.
