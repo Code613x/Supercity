@@ -1,4 +1,4 @@
-:: Supercity © 2024 by Code613 is licensed under CC BY-NC-ND 4.0 
+:: Supercity © 2023 by Code613 is licensed under CC BY-NC-ND 4.0 
 @echo off
 title SuperCity 4.1
 color 0A

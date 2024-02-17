@@ -1,4 +1,4 @@
-:: Supercity © 2024 by Code613 is licensed under CC BY-NC-ND 4.0 
+:: Supercity © 2023 by Code613 is licensed under CC BY-NC-ND 4.0 
 @echo off
 title SuperCity 5.0
 color 0A
@@ -82,10 +82,6 @@ ping localhost -n 1 >nul
 cls
 goto 0
 
-
-
-
-
 :cfgcreate
 set fo=1
 set clr=0A
@@ -113,20 +109,10 @@ echo %lotemp%
 )>config.cfg
 goto lac
 
-
-
-
-
 :0
 cls
 if exist save5.dlb goto start
 if not exist save5.dlb goto start0
-
-
-
-
-
-
 
 ::First EasterEgg
 :eggo1
@@ -215,13 +201,6 @@ set /a ees=ees+1
 set eeftp=1
 goto front
 
-
-
-
-
-
-
-
 ::SaveFile - GameContinue
 :start
 cls
@@ -287,12 +266,6 @@ if not %cho%==4 goto start0
 if not %cho%==5 goto start0
 if not %cho%==6 goto start0
 
-
-
-
-
-
-
 ::Change Color of Text
 :changecolor
 cls
@@ -357,11 +330,6 @@ goto changecolorexit
 cls
 goto 0
 
-
-
-
-
-
 ::game reset
 :reset
 del save5.dlb
@@ -412,6 +380,7 @@ set /p cenadom=
 set /p cenawiezowiec=
 set /p cenaapartament=
 set /p cenaaltana=
+set /p bonuswork=
 )<save5.dlb
 
 set wyplatamc=500
@@ -424,8 +393,6 @@ set mw=50
 set ma=10
 set map=120
 goto front 
-
-
 
 ::load error
 :load0
@@ -443,14 +410,10 @@ pause >nul
 cls
 goto start0
 
-
-
 ::save test2
 :savetest
 if exist save5.dlb goto delsave
 if not exist save5.dlb goto save
-
-
 
 ::save1
 :save
@@ -496,6 +459,7 @@ echo %cenadom%
 echo %cenawiezowiec%
 echo %cenaapartament%
 echo %cenaaltana%
+echo %bonuswork%
 )>save5.dlb
 goto save5
 
@@ -543,6 +507,7 @@ echo %cenadom%
 echo %cenawiezowiec%
 echo %cenaapartament%
 echo %cenaaltana%
+echo %bonuswork%
 )>save5.dlb
 goto exit
 :exit
@@ -590,13 +555,11 @@ echo %deadcity%
 echo %killedcity%
 echo %cenadom%
 echo %cenawiezowiec%
-echo  %cenaapartament%
-echo  %cenaaltana%
+echo %cenaapartament%
+echo %cenaaltana%
+echo %bonuswork%
 )>save5.dlb
 goto gra0
-
-
-
 
 ::remove save
 :delsave
@@ -675,8 +638,8 @@ set kasa=1000
 set mieszkancy=0
 set nasyceniem=100
 set cenadom=200
-set cenawiezowiec=350
-set cenaapartament=800
+set cenawiezowiec=800
+set cenaapartament=350
 set cenaaltana=100
 set iloscdom=0
 set wyplatamc=500
@@ -707,6 +670,7 @@ set eefn=0
 set eesallfound=0
 set deadcity=0
 set killedcity=0
+set bonuswork=0
 cls
 echo What is your name?:
 set /p "imie=>> "
@@ -769,7 +733,7 @@ if %iloscwiezowiec%==100 goto Skyscraper100ach
 if %iloscaltana%==100 goto Bowers100ach
 if %iloscapartament%==100 goto Apartments100ach
 if %iloscjarmark%==100 goto Fairs100ach
-if %killedcity%==1 goto kcadvancment
+if %killedcity%==1 goto kcachievement
 if %deadcity%==1 goto deadhunger
 
 if %nasyceniem%==50 goto halfhunger
@@ -794,9 +758,9 @@ echo Money: %kasa% %waluta0%        Residents: %mieszkancy%
 echo ########################################
 echo #============#  Buildings  #===========#
 echo # 1. Buy A House (Cost: %cenadom% %waluta%)
-echo # 2. Buy A Skyscraper (Cost: %cenawiezowiec% %waluta%)
+echo # 2. Buy A Apartament (Cost: %cenaapartament% %waluta%)
 echo # 3. Buy A Bower (Cost: %cenaaltana% %waluta%)
-echo # 4. Buy An Apartament (Cost: %cenaapartament% %waluta%)
+echo # 4. Buy An Skyscraper (Cost: %cenawiezowiec% %waluta%)
 echo ########################################
 echo              # Mayor Menu #             
 echo ########################################
@@ -807,7 +771,7 @@ echo # 7. Go to Fair                        #
 echo #==============#  Stats  #=============#
 echo # 8. Player Stats                      #
 echo # 9. City Stats                        #
-echo # 10. Advancments                      #
+echo # 10. Achievements                     #
 echo #==============#  Food  #==============#
 echo # 11. Buy Food                         #
 if %deadcity%==1 echo # CDB. Hire Cleaning Service            #
@@ -820,9 +784,9 @@ echo ########################################
 
 set /p "cho=Option: "
 if %cho%==1 goto checkdom
-if %cho%==2 goto checkwiezowiec
+if %cho%==4 goto checkwiezowiec
 if %cho%==3 goto checkaltana
-if %cho%==4 goto checkapartament
+if %cho%==2 goto checkapartament
 if %cho%==5 goto praca
 if %cho%==6 goto lotto
 if %cho%==7 goto Jarmark
@@ -830,7 +794,7 @@ if %cho%==11 goto buyfood
 if %deadcity%==1 if %cho%==CDB goto hirecs
 if %deadcity%==1 if %cho%==Cdb goto hirecs
 if %deadcity%==1 if %cho%==cdb goto hirecs
-if %cho%==10 goto advancments0
+if %cho%==10 goto achievements0
 if %cho%==12 goto save
 if %cho%==13 goto changecolor2
 if %cho%==8 goto pstats
@@ -1117,60 +1081,59 @@ goto front
 
 
 
-::Advancments
-:advancments0
+::achievements
+:achievements0
 cls
-echo [Advancments]
+echo [Achievements]
 echo.
 echo.
-if /i %iloscdom% GEQ 100 echo [6] 100 Houses Advancment - Unlocked
-if /i not %iloscdom% GEQ 100 echo [6] 100 Houses Advancment - Locked
-echo Advancment Description: Buy 100 Houses
+if /i %iloscdom% GEQ 100 echo [6] 100 Houses achievement - Unlocked
+if /i not %iloscdom% GEQ 100 echo [6] 100 Houses achievement - Locked
+echo achievement Description: Buy 100 Houses
 echo.
-if /i %iloscwiezowiec% GEQ 100 echo [2] 100 Skyscrapers Advancment - Unlocked
-if /i not %iloscwiezowiec% GEQ 100 echo [2] 100 Skyscrapers Advancment - Locked
-echo Advancment Description: Buy 100 Skyscrapers
+if /i %iloscwiezowiec% GEQ 100 echo [2] 100 Skyscrapers achievement - Unlocked
+if /i not %iloscwiezowiec% GEQ 100 echo [2] 100 Skyscrapers achievement - Locked
+echo achievement Description: Buy 100 Skyscrapers
 echo.
-if /i %iloscaltana% GEQ 100 echo [3] 100 Bowers Advancment - Unlocked
-if /i not %iloscaltana% GEQ 100 echo [3] 100 Bowers Advancment - Locked
-echo Advancment Description: Buy 100 Bowers
+if /i %iloscaltana% GEQ 100 echo [3] 100 Bowers achievement - Unlocked
+if /i not %iloscaltana% GEQ 100 echo [3] 100 Bowers achievement - Locked
+echo achievement Description: Buy 100 Bowers
 echo.
-if /i %iloscapartament% GEQ 100 echo [4] 100 Apartaments Advancment - Unlocked
-if /i not %iloscapartament% GEQ 100 echo [4] 100 Apartaments Advancment - Locked
-echo Advancment Description: Buy 100 Apartaments
+if /i %iloscapartament% GEQ 100 echo [4] 100 Apartaments achievement - Unlocked
+if /i not %iloscapartament% GEQ 100 echo [4] 100 Apartaments achievement - Locked
+echo achievement Description: Buy 100 Apartaments
 echo.
-if /i %iloscjarmark% GEQ 100 echo [5] 100 Fairs Advancment - Unlocked
-if /i not %iloscjarmark% GEQ 100 echo [5] 100 Fairs Advancment - Locked
-echo Advancment Description: Buy 100 Fairs
+if /i %iloscjarmark% GEQ 100 echo [5] 100 Fairs achievement - Unlocked
+if /i not %iloscjarmark% GEQ 100 echo [5] 100 Fairs achievement - Locked
+echo achievement Description: Buy 100 Fairs
 echo.
-if /i %iloscdom% GEQ 1000 echo [6] 1000 Houses Advancment - Unlocked
-if /i not %iloscdom% GEQ 1000 echo [6] 1000 Houses Advancment - Locked
-echo Advancment Description: Buy 1000 Houses
+if /i %iloscdom% GEQ 1000 echo [6] 1000 Houses achievement - Unlocked
+if /i not %iloscdom% GEQ 1000 echo [6] 1000 Houses achievement - Locked
+echo achievement Description: Buy 1000 Houses
 echo.
-if /i %iloscwiezowiec% GEQ 1000 echo [7] 1000 Skyscrapers Advancment - Unlocked
-if /i not %iloscwiezowiec% GEQ 1000 echo [7] 1000 Skyscrapers Advancment - Locked
-echo Advancment Description: Buy 1000 Skyscrapers
+if /i %iloscwiezowiec% GEQ 1000 echo [7] 1000 Skyscrapers achievement - Unlocked
+if /i not %iloscwiezowiec% GEQ 1000 echo [7] 1000 Skyscrapers achievement - Locked
+echo achievement Description: Buy 1000 Skyscrapers
 echo.
-if /i %iloscaltana% GEQ 1000 echo [8] 1000 Bowers advancment - Unlocked
-if /i not %iloscaltana% GEQ 1000 echo [8] 1000 Bowers Advancment - Locked
-echo Advancment Description: Buy 1000 Bowers
+if /i %iloscaltana% GEQ 1000 echo [8] 1000 Bowers achievement - Unlocked
+if /i not %iloscaltana% GEQ 1000 echo [8] 1000 Bowers achievement - Locked
+echo achievement Description: Buy 1000 Bowers
 echo.
-if /i %iloscapartament% GEQ 1000 echo [9] 1000 Apartaments Advancment - Unlocked
-if /i not %iloscapartament% GEQ 1000 echo [9] 1000 Apartaments Advancment - Locked
-echo Advancment Description: Buy 1000 Apartaments
+if /i %iloscapartament% GEQ 1000 echo [9] 1000 Apartaments achievement - Unlocked
+if /i not %iloscapartament% GEQ 1000 echo [9] 1000 Apartaments achievement - Locked
+echo achievement Description: Buy 1000 Apartaments
 echo.
-if /i %iloscjarmark% GEQ 1000 echo [10] 1000 Fairs Advancment - Unlocked
-if /i not %iloscjarmark% GEQ 1000 echo [10] 1000 Fairs Advancment - Locked
-echo Advancment Description: Buy 1000 Fairs
+if /i %iloscjarmark% GEQ 1000 echo [10] 1000 Fairs achievement - Unlocked
+if /i not %iloscjarmark% GEQ 1000 echo [10] 1000 Fairs achievement - Locked
+echo achievement Description: Buy 1000 Fairs
 echo.
 if /i %killedcity% GEQ 1 echo [11] Abandoned City - Unlocked
 if /i not %killedcity% GEQ 1 echo [11] Empty Your City - Locked
-echo Advancment Description: Kill Your City by Leaveing Them Without Food
-echo (Just Go In And Out of City Menu)
+echo achievement Description: Kill Your City by Leaveing Them Without Food
 echo.
 if /i %exp% GEQ 100000 echo [12] XP God - Unlocked
 if /i not %exp% GEQ 100000 echo [12] XP God - Locked
-echo Advancment Description: Gain 100k XP
+echo achievement Description: Gain 100k XP
 if /i %exp% GEQ 100000 echo.
 if /i not %exp% GEQ 100000 echo Your current xp: %exp%/100k
 pause >nul
@@ -1179,7 +1142,7 @@ goto front
 :xpgod
 cls
 echo.
-echo New Advancment Unlocked (Abandoned City)
+echo New achievement Unlocked (Abandoned City)
 echo +1000 %waluta%
 echo +100 Cityzens
 echo.
@@ -1195,10 +1158,10 @@ goto front
 
 
 ::You Killed Everyone, Congrats lol
-:kcadvancment
+:kcachievement
 cls
 echo.
-echo New Advancment Unlocked (Abandoned City)
+echo New achievement Unlocked (Abandoned City)
 echo +1000 Exp
 echo +100 Cityzens
 echo.
@@ -1215,11 +1178,11 @@ goto front
 
 
 
-::Skyscraper advancment2
+::Skyscraper achievement2
 :Skyscraper100ach
 cls
 echo.
-echo New Advancment Unlocked (100 Skyscraper)
+echo New achievement Unlocked (100 Skyscraper)
 echo +1000 Exp
 echo +1000 %waluta%
 echo.
@@ -1234,11 +1197,11 @@ goto front
 
 
 
-::houses advancment2
+::houses achievement2
 :house100ach
 cls
 echo.
-echo New Advancment Unlocked (100 houses)
+echo New achievement Unlocked (100 houses)
 echo +1000 Exp
 echo +1000 %waluta%
 echo.
@@ -1253,11 +1216,11 @@ goto front
 
 
 
-::Bowers advancment2
+::Bowers achievement2
 :Bowers100ach
 cls
 echo.
-echo New Advancment Unlocked (100 Bowers)
+echo New achievement Unlocked (100 Bowers)
 echo +1000 Exp
 echo +1000 %waluta%
 echo.
@@ -1272,11 +1235,11 @@ goto front
 
 
 
-::Apartaments advancment2
+::Apartaments achievement2
 :Apartments100ach
 cls
 echo.
-echo New Advancment Unlocked (100 Apartaments)
+echo New achievement Unlocked (100 Apartaments)
 echo +1000 Exp
 echo +1000 %waluta%
 echo.
@@ -1291,11 +1254,11 @@ goto front
 
 
 
-::Fairs advancment2
+::Fairs achievement2
 :Fairs100ach
 cls
 echo.
-echo New Advancment Unlocked (100 Fairs)
+echo New achievement Unlocked (100 Fairs)
 echo +1000 Exp
 echo +1000 %waluta%
 echo.
@@ -1310,11 +1273,11 @@ goto front
 
 
 
-::Skyscraper advancment
+::Skyscraper achievement
 :Skyscraper1000ach
 cls
 echo.
-echo New Advancment Unlocked (1000 Skyscraper)
+echo New achievement Unlocked (1000 Skyscraper)
 echo +1500 Exp
 echo +1500 %waluta%
 echo.
@@ -1329,11 +1292,11 @@ goto front
 
 
 
-::houses advancment
+::houses achievement
 :house1000ach
 cls
 echo.
-echo New Advancment Unlocked (1000 houses)
+echo New achievement Unlocked (1000 houses)
 echo +1500 Exp
 echo +1500 %waluta%
 echo.
@@ -1348,11 +1311,11 @@ goto front
 
 
 
-::Bowers advancment
+::Bowers achievement
 :Bowers1000ach
 cls
 echo.
-echo New Advancment Unlocked (1000 Bowers)
+echo New achievement Unlocked (1000 Bowers)
 echo +1500 Exp
 echo +1500 %waluta%
 echo.
@@ -1367,11 +1330,11 @@ goto front
 
 
 
-::Apartaments advancment
+::Apartaments achievement
 :Apartments1000ach
 cls
 echo.
-echo New Advancment Unlocked (1000 Apartaments)
+echo New achievement Unlocked (1000 Apartaments)
 echo +1500 Exp
 echo +1500 %waluta%
 echo.
@@ -1386,11 +1349,11 @@ goto front
 
 
 
-::Fairs advancment
+::Fairs achievement
 :Fairs1000ach
 cls
 echo.
-echo New Advancment Unlocked (1000 Fairs)
+echo New achievement Unlocked (1000 Fairs)
 echo +1500 Exp
 echo +1500 %waluta%
 echo.
@@ -1508,6 +1471,7 @@ cls
 echo The fair will bring profit in 24 hours.
 echo Progress: Done!
 ping localhost-n 1 >nul
+set /a bonuswork=bonuswork+1
 cls
 set randomfaircash=%random:~0,5%
 echo You have earned %randomfaircash% %waluta%. at the Fair.
@@ -1549,6 +1513,7 @@ set /a mieszkancy=mieszkancy+md
 set /a iloscdom=iloscdom+1
 set /a exp=exp+50
 set /a cenadom=cenadom+4
+set /a bonuswork=bonuswork+1
 goto front
 
 
@@ -1559,6 +1524,7 @@ set /a mieszkancy=mieszkancy+map
 set /a iloscapartament=iloscapartament+1
 set /a exp=exp+50
 set /a cenaapartament=cenaapartament+8
+set /a bonuswork=bonuswork+1
 goto front
 
 
@@ -1569,6 +1535,7 @@ set /a mieszkancy=mieszkancy+mw
 set /a iloscwiezowiec=iloscwiezowiec+1
 set /a exp=exp+50
 set /a cenawiezowiec=cenawiezowiec+20
+set /a bonuswork=bonuswork+10
 goto front
 
 
@@ -1623,12 +1590,12 @@ cls
 echo.
 echo.									
 echo As who do you want to work?
-echo 1. Factory Worker (1500 %waluta%)
-echo 2. McDonald's Worker (500 %waluta%)
-echo 3. Computer Specialist (2000 %waluta%)
-echo 4. Hacker (500-2000 %waluta%)
-echo 5. Clotheing Shop  Worker (500 %waluta%)
-echo 6. Photographer (500 %waluta%)
+echo 1. Factory Worker (1500+ %waluta%)
+echo 2. McDonald's Worker (500+ %waluta%)
+echo 3. Computer Specialist (2000+ %waluta%)
+echo 4. Hacker (500-2000+ %waluta%)
+echo 5. Clotheing Shop  Worker (500+ %waluta%)
+echo 6. Photographer (500+ %waluta%)
 echo.
 echo 7. Back
 set /p "cho=Option: "
@@ -1654,7 +1621,7 @@ cls
 echo Hello, I see you need quick cash?
 pause >nul
 echo You just need to be a good worker, 
-echo You will get 500 %waluta%. Press enter.
+echo You will get 500+ %waluta%. Press enter.
 pause >nul
 cls
 echo Wait 5 hours.
@@ -1676,7 +1643,7 @@ cls
 echo You've finished your work. You have earned 500 %waluta%.
 echo +100 exp
 pause>nul
-set /a kasa=kasa+500
+set /a kasa=kasa+500+bonuswork
 set /a exp=exp+100
 goto front
 
@@ -1687,7 +1654,7 @@ cls
 echo Hello, I see you need quick cash?
 pause>nul
 echo You just need to be a good worker, 
-echo You will get 500 %waluta%. Press enter.
+echo You will get 500+ %waluta%. Press enter.
 pause>nul
 cls
 echo Wait 8 hours.
@@ -1718,7 +1685,7 @@ echo You've finished your work. You have earned 500 %waluta%.
 echo Progress: Done!
 echo +100 exp
 pause>nul
-set /a kasa=kasa+500
+set /a kasa=kasa+500+bonuswork
 set /a exp=exp+100
 goto front
 
@@ -1728,10 +1695,10 @@ goto front
 cls
 echo Choose how much you want to hack.
 echo.
-echo 1. 500  %waluta% 	Time 60h
-echo 2. 800 %waluta% 	Time 120h
-echo 3. 1600 %waluta% 	Time 180h
-echo 4. 2000 %waluta% 	Time 240h
+echo 1. 500+  %waluta% 	Time 60h
+echo 2. 800+ %waluta% 	Time 120h
+echo 3. 1600+ %waluta% 	Time 180h
+echo 4. 2000+ %waluta% 	Time 240h
 set /p "cho=Option: "
 if %cho%==1 goto h1
 if %cho%==2 goto h2
@@ -1762,7 +1729,7 @@ ping localhost-n 10 >nul
 echo +100 exp
 pause
 set /a exp=exp+100
-set /a kasa=kasa+500
+set /a kasa=kasa+500+bonuswork
 cls
 goto front
 
@@ -1786,7 +1753,7 @@ ping localhost-n 10 >nul
 echo +200 exp
 pause
 set /a exp=exp+200
-set /a kasa=kasa+800
+set /a kasa=kasa+800+bonuswork
 cls
 goto front
 
@@ -1810,7 +1777,7 @@ ping localhost-n 10 >nul
 echo +100 exp
 pause
 set /a exp=exp+300
-set /a kasa=kasa+1600
+set /a kasa=kasa+1600+bonuswork
 cls
 goto front
 
@@ -1834,7 +1801,7 @@ ping localhost-n 10 >nul
 echo +100 exp
 pause
 set /a exp=exp+400
-set /a kasa=kasa+2000
+set /a kasa=kasa+2000+bonuswork
 cls
 goto front
 
@@ -1845,7 +1812,7 @@ echo Welcome in Supercity Studio!
 pause
 echo Don't think we'll give you 2000 %waluta% for nothing!
 pause
-echo You must answer 3 questions correctly to get 2000 %waluta%.
+echo You must answer 3 questions correctly to get 2000+ %waluta%.
 pause
 cls
 goto p1
@@ -1894,11 +1861,12 @@ goto front
 
 :dobrze
 cls
-set /a kasa=kasa+2000
+set /a kasa=kasa+2000+bonuswork
+set /a tmp=2000+bonuswork
 set /a exp=exp+100
 echo You managed to answer all the questions!
 pause>nul
-echo Here's your salary of 2000 %waluta%.
+echo Here's your salary of %tmp% %waluta%.
 pause>nul
 echo See you later!
 pause>nul
@@ -1914,7 +1882,7 @@ echo Welcome to the factory!
 pause>nul
 echo Don't think we'll give you 1500 %waluta% for nothing!
 pause>nul
-echo You must answer 3 questions correctly to get 1500%waluta%.
+echo You must answer 3 questions correctly to get 1500+ %waluta%.
 pause
 cls
 goto f1
@@ -1953,10 +1921,11 @@ if NOT %odpowiedz:%==4 goto fbad
 
 :fend
 cls
-set /a kasa=kasa+wyplataf
+set /a kasa=kasa+wyplataf+bonuswork
+set /a tmp=1500+bonuswork
 echo You managed to answer all the questions!
 pause>nul
-echo Here's your salary of 1500 %waluta%.
+echo Here's your salary of %tmp% %%waluta%.
 pause>nul
 echo +100 exp
 pause
@@ -1971,7 +1940,7 @@ cls
 echo Hello, I see you need quick cash?
 pause>nul
 echo You just need to be a good worker, 
-echo You will get 500 %waluta%. okay?
+echo You will get 500+ %waluta%. okay?
 pause
 cls
 echo Wait 8 hours.
@@ -1998,11 +1967,12 @@ ping localhost-n 1 >nul
 echo Wait 1 hour..
 echo Progress: [########]
 ping localhost-n 1 >nul
-echo You've finished your work. You have earned 500 %waluta%.
+set /a tmp=500+bonuswork
+echo You've finished your work. You have earned %tmp% %waluta%.
 echo Progress: Done!
 echo +100 exp
 pause>nul
-set /a kasa=kasa+wyplatamc
+set /a kasa=kasa+wyplatamc+bonuswork
 set /a exp=exp+100
 goto front
 
