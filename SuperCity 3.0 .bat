@@ -1,6 +1,6 @@
 :: Supercity © 2023 by Code613 is licensed under CC BY-NC-ND 4.0 
 @echo off
-title SuperCity 3.0
+title SuperCity 3.0 
 color 0A
 
 ::Save test
