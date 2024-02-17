@@ -16,7 +16,5 @@ This project is licensed under the [Creative Commons Attribution-NonCommercial-N
 For a human-readable summary of the license terms, please refer to the [CC BY-NC-ND 4.0 Deed](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en). 
 
 The full text of the license can be found in the [LICENSE](LICENSE) file. 
-
-Supercity © 2023 by Code613 is licensed under CC BY-NC-ND 4.0  
 </details>
 
